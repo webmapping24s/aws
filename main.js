@@ -52,6 +52,7 @@ async function showStations(url) {
             });
         },
         onEachFeature: function(feature, layer) {
+            let pointInTime = new Date(feature.properties.date);
             layer.bindPopup(`
                 <h4>${feature.properties.name} (${feature.geometry.coordinates[2]}m)</h4>
                 <ul>
@@ -60,7 +61,7 @@ async function showStations(url) {
                     <li>Windgeschwindigkeit (km/h): ${feature.properties.WG != undefined ? feature.properties.WG.toFixed(1) : "-"}</li>
                     <li>Schneehöhe (cm): ${feature.properties.HS != undefined ? feature.properties.HS.toFixed(0) : "-"}</li>
                 </ul>
-                <span>${feature.properties.date}</span>
+                <span>${pointInTime.toLocaleString()}</span>
             `);
         }
     }).addTo(themaLayer.stations);
