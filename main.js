@@ -57,7 +57,7 @@ async function showStations(url) {
                 <ul>
                     <li>Lufttemperatur (°C): ${feature.properties.LT != undefined ? feature.properties.LT : "-"}</li>
                     <li>Relative Luftfeuchte (%): ${feature.properties.RH != undefined ? feature.properties.RH : "-"}</li>
-                    <li>Windgeschwindigkeit (km/h): ${feature.properties.WG != undefined ? feature.properties.WG : "-"}</li>
+                    <li>Windgeschwindigkeit (km/h): ${feature.properties.WG != undefined ? (feature.properties.WG * 3.6).toFixed(1) : "-"}</li>
                     <li>Schneehöhe (cm): ${feature.properties.HS != undefined ? feature.properties.HS : "-"}</li>
                 </ul>
                 <span>${feature.properties.date}</span>
