@@ -141,3 +141,15 @@ async function showStations(url) {
     showSnow(geojson);
 }
 showStations("https://static.avalanche.report/weather_stations/stations.geojson");
+
+// Leaflet Rainviewer aktivieren
+L.control.rainviewer({ 
+    position: "topleft",
+    nextButtonText: ">",
+    playStopButtonText: "Play/Stop",
+    prevButtonText: "<",
+    positionSliderLabelText: "Hour:",
+    opacitySliderLabelText: "Opacity:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
